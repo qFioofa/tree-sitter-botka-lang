@@ -1,0 +1,486 @@
+==================
+Coin instance EN
+==================
+@start
+if({} coin) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Coin instance RU
+==================
+@start
+если({} монета) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Obj instance EN
+==================
+@start
+if({} obj) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Obj instance RU
+==================
+@start
+если({} объект) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Space instance EN
+==================
+@start
+if({} space) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Space instance RU
+==================
+@start
+если({} пусто) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Instance with not modifier EN
+==================
+@start
+if({not} coin) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Instance with not modifier RU
+==================
+@start
+если({не} монета) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Instance with empty modifier
+==================
+@start
+if({} coin) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Instance in while loop EN
+==================
+@start
+while({} obj) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Instance in while loop RU
+==================
+@start
+пока({} объект) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Instance in for loop EN
+==================
+@start
+for(1 times) {
+  if({} space) {
+  };
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Instance in for loop RU
+==================
+@start
+для(1 раз) {
+  если({} пусто) {
+  };
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Coin instance EN
+==================
+@start
+if({} coin) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Coin instance RU
+==================
+@start
+если({} монета) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Obj instance EN
+==================
+@start
+if({} obj) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Obj instance RU
+==================
+@start
+если({} объект) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Space instance EN
+==================
+@start
+if({} space) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Space instance RU
+==================
+@start
+если({} пусто) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Instance with not modifier EN
+==================
+@start
+if({not} coin) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Instance with not modifier RU
+==================
+@start
+если({не} монета) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Instance with empty modifier
+==================
+@start
+if({} coin) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Instance in while loop EN
+==================
+@start
+while({} obj) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Instance in while loop RU
+==================
+@start
+пока({} объект) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Instance in for loop EN
+==================
+@start
+for(1 times) {
+  if({} space) {
+  };
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Instance in for loop RU
+==================
+@start
+для(1 раз) {
+  если({} пусто) {
+  };
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Nested if statements with instances
+==================
+@start
+if({} coin) {
+  if({not} obj) {
+    if({} space) {
+    };
+  };
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+If with else clause and instances
+==================
+@start
+if({} coin) {
+  forward 1;
+} else {
+  backward 1;
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+If with else if chain and instances
+==================
+@start
+if({} coin) {
+  forward 1;
+} else if({} obj) {
+  right 90;
+} else if({} space) {
+  left 45;
+} else {
+  backward 1;
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Instances with comments inside
+==================
+@start
+if({} coin) {
+  // Inside if block
+  forward 1;
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Instances with comments around
+==================
+@start
+// Before if
+if({not} obj) {
+  /* Inside block */
+  right 90;
+  // After action
+};
+// After if
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Nested loops with instances and comments
+==================
+@start
+/* Outer comment */
+while({} coin) {
+  // Inner comment
+  for(3 times) {
+    if({} obj) {
+      forward 1;
+    } else {
+      /* Nested comment */
+      backward 1;
+    };
+  };
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))

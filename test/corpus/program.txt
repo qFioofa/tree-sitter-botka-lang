@@ -1,0 +1,38 @@
+==================
+Minimal program EN
+==================
+@start
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Minimal program RU
+==================
+@начало
+@конец
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Program with whitespace
+==================
+@start
+
+
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+

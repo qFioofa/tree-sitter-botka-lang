@@ -1,11 +1,64 @@
 [
   {
-    "type": "source_file",
+    "type": "program_end",
     "named": true,
     "fields": {}
   },
   {
-    "type": "hello",
+    "type": "program_error_parsing",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "program_start",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "program_end",
+          "named": true
+        },
+        {
+          "type": "program_error_parsing",
+          "named": true
+        },
+        {
+          "type": "program_start",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "@end",
     "named": false
+  },
+  {
+    "type": "@start",
+    "named": false
+  },
+  {
+    "type": "@конец",
+    "named": false
+  },
+  {
+    "type": "@начало",
+    "named": false
+  },
+  {
+    "type": "comment",
+    "named": true
   }
 ]

@@ -1,0 +1,256 @@
+==================
+While loop with coin instance EN
+==================
+@start
+while({} coin) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+While loop with coin instance RU
+==================
+@start
+пока({} монета) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+While loop with obj instance EN
+==================
+@start
+while({not} obj) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+While loop with obj instance RU
+==================
+@start
+пока({не} объект) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+While loop with space instance EN
+==================
+@start
+while({} space) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+While loop with space instance RU
+==================
+@start
+пока({} пусто) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+For loop with positive number EN
+==================
+@start
+for(5 times) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+For loop with positive number RU
+==================
+@start
+для(5 раз) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+For loop with plus sign EN
+==================
+@start
+for(+10 times) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+For loop with plus sign RU
+==================
+@start
+для(+10 раз) {
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Nested while loops with instances
+==================
+@start
+while({} coin) {
+  while({not} obj) {
+    while({} space) {
+    };
+  };
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Nested for loops
+==================
+@start
+for(3 times) {
+  for(2 times) {
+    for(1 times) {
+    };
+  };
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Mixed while and for loops
+==================
+@start
+while({} coin) {
+  for(2 times) {
+    if({not} obj) {
+      forward 1;
+    };
+  };
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Loops with comments inside
+==================
+@start
+while({} coin) {
+  // Inside while loop
+  for(1 times) {
+    /* Inside for loop */
+  };
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Loops with comments around
+==================
+@start
+/* Before while */
+while({not} obj) {
+  // Inside while
+};
+/* Between loops */
+for(3 times) {
+  /* Inside for */
+};
+/* After for */
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Complex nesting with actions and conditions
+==================
+@start
+while({} coin) {
+  for(2 times) {
+    if({not} space) {
+      forward 10;
+    } else {
+      backwards 5;
+    };
+    right 90;
+  };
+  left 45;
+};
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))

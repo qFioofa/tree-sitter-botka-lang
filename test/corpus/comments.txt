@@ -1,0 +1,211 @@
+==================
+Single line comment
+==================
+@start
+// comment
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Multiple single line comments
+==================
+@start
+// comment 1
+// comment 2
+// comment 3
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Multi-line comment
+==================
+@start
+/* comment */
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Multi-line comment with newlines
+==================
+@start
+/*
+line 1
+line 2
+line 3
+*/
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Mixed comments
+==================
+@start
+// single
+/* multi */
+// another
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Comment with @ symbols inside
+==================
+@start
+// @start inside comment
+/* @end inside comment */
+@end
+---
+
+(source_file
+  (program_start)
+  (comment)
+  (comment)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Empty multi-line comment
+==================
+@start
+/**/
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Comment with stars
+==================
+@start
+/* * * * */
+@end
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+RU comments
+==================
+@начало
+// комментарий
+/* многострочный */
+@конец
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Comment before @start
+==================
+// last comment
+@start
+@end
+---
+
+(source_file
+  (comment)
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Comment after @end
+==================
+@start
+@end
+// comment
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end)
+  (comment))
+
+==================
+Multi comment before @start
+==================
+/* comment */
+@start
+@end
+---
+
+(source_file
+  (comment)
+  (program_start)
+  (program_error_parsing)
+  (program_end))
+
+==================
+Multi comment after @end
+==================
+@start
+@end
+/* comment */
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end)
+  (comment))
+
+==================
+Inline comment
+==================
+@start // Comment
+@end // Comment
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end)
+  (comment))
+
+==================
+Inline multi comment
+==================
+@start /* Comment */
+@end /* Comment */
+---
+
+(source_file
+  (program_start)
+  (program_error_parsing)
+  (program_end)
+  (comment))
+
