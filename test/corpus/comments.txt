@@ -8,7 +8,7 @@ Single line comment
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (single_line_comment)
   (program_end))
 
 ==================
@@ -23,7 +23,9 @@ Multiple single line comments
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (single_line_comment)
+  (single_line_comment)
+  (single_line_comment)
   (program_end))
 
 ==================
@@ -36,7 +38,7 @@ Multi-line comment
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (multi_line_comment)
   (program_end))
 
 ==================
@@ -53,7 +55,7 @@ line 3
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (multi_line_comment)
   (program_end))
 
 ==================
@@ -68,7 +70,9 @@ Mixed comments
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (single_line_comment)
+  (multi_line_comment)
+  (single_line_comment)
   (program_end))
 
 ==================
@@ -82,9 +86,8 @@ Comment with @ symbols inside
 
 (source_file
   (program_start)
-  (comment)
-  (comment)
-  (program_error_parsing)
+  (single_line_comment)
+  (multi_line_comment)
   (program_end))
 
 ==================
@@ -97,7 +100,7 @@ Empty multi-line comment
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (multi_line_comment)
   (program_end))
 
 ==================
@@ -110,7 +113,7 @@ Comment with stars
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (multi_line_comment)
   (program_end))
 
 ==================
@@ -124,7 +127,8 @@ RU comments
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (single_line_comment)
+  (multi_line_comment)
   (program_end))
 
 ==================
@@ -136,9 +140,8 @@ Comment before @start
 ---
 
 (source_file
-  (comment)
+  (single_line_comment)
   (program_start)
-  (program_error_parsing)
   (program_end))
 
 ==================
@@ -151,9 +154,8 @@ Comment after @end
 
 (source_file
   (program_start)
-  (program_error_parsing)
   (program_end)
-  (comment))
+  (single_line_comment))
 
 ==================
 Multi comment before @start
@@ -164,9 +166,8 @@ Multi comment before @start
 ---
 
 (source_file
-  (comment)
+  (multi_line_comment)
   (program_start)
-  (program_error_parsing)
   (program_end))
 
 ==================
@@ -179,9 +180,8 @@ Multi comment after @end
 
 (source_file
   (program_start)
-  (program_error_parsing)
   (program_end)
-  (comment))
+  (multi_line_comment))
 
 ==================
 Inline comment
@@ -192,9 +192,9 @@ Inline comment
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (single_line_comment)
   (program_end)
-  (comment))
+  (single_line_comment))
 
 ==================
 Inline multi comment
@@ -205,7 +205,6 @@ Inline multi comment
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (multi_line_comment)
   (program_end)
-  (comment))
-
+  (multi_line_comment))

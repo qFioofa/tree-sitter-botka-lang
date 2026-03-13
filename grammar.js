@@ -1,55 +1,64 @@
+const PREC = {
+	DEFAULT: 0,
+	STATEMENT: 1,
+	BLOCK: 2,
+	CONDITION: 3,
+	IF_CHAIN: 4,
+	ELSE_CLAUSE: 5,
+	NUMBER: 6,
+	ACTION: 7,
+};
+
 module.exports = grammar({
 	name: "botka",
 
 	word: ($) => $.identifier,
 
-	extras: ($) => [/[ \t\r\n]+/],
+	extras: ($) => [/\s+/, $.single_line_comment, $.multi_line_comment],
+
+	supertypes: ($) => [$.statement],
 
 	rules: {
 		source_file: ($) =>
 			seq(
-				repeat($._top_level_item),
 				optional($.program_start),
-				repeat($._program_content),
+				repeat($.statement),
 				optional($.program_end),
-				repeat($._top_level_item),
 			),
 
 		program_start: ($) => choice("@start", "@начало"),
-
 		program_end: ($) => choice("@end", "@конец"),
 
-		_top_level_item: ($) => choice($.single_line_comment, $.multi_line_comment),
-
-		_program_content: ($) =>
+		statement: ($) =>
 			choice(
-				$.single_line_comment,
-				$.multi_line_comment,
-				$.if_statement,
-				$.while_statement,
-				$.for_statement,
-				$.action_statement,
-				$.program_error_parsing,
+				prec.right(PREC.STATEMENT, $.if_statement),
+				prec.right(PREC.STATEMENT, $.while_statement),
+				prec.right(PREC.STATEMENT, $.for_statement),
+				prec.left(PREC.ACTION, $.action_statement),
+				$.empty_statement,
 			),
 
-		program_error_parsing: ($) => prec(-1, token(/[a-zA-Zа-яА-Я0-9_]+/)),
+		empty_statement: (_) => ";",
 
-		// IF STATEMENT
 		if_statement: ($) =>
-			seq(
-				$.if_keyword,
-				$.condition,
-				$.block,
-				optional($.else_if_chain),
-				optional($.else_clause),
+			prec.right(
+				PREC.IF_CHAIN,
+				seq(
+					$.if_keyword,
+					$.condition,
+					$.block,
+					optional($.else_if_chain),
+					optional($.else_clause),
+				),
 			),
 
 		if_keyword: ($) => choice("if", "если"),
 
-		condition: ($) => seq("(", $.condition_modifier, $.instance, ")"),
+		condition: ($) =>
+			prec(PREC.CONDITION, seq("(", $.condition_modifier, $.instance, ")")),
 
 		condition_modifier: ($) =>
-			choice(seq("{", "not", "}"), seq("{", "не", "}"), seq("{", "}")),
+			choice(seq("{", choice("not", "не"), "}"), seq("{", "}")),
 
 		instance: ($) => choice($.coin_instance, $.obj_instance, $.space_instance),
 
@@ -57,24 +66,28 @@ module.exports = grammar({
 		obj_instance: ($) => choice("obj", "объект"),
 		space_instance: ($) => choice("space", "пусто"),
 
-		else_if_chain: ($) => repeat1($.else_if_clause),
+		else_if_chain: ($) => prec.right(PREC.IF_CHAIN, repeat1($.else_if_clause)),
 
 		else_if_clause: ($) =>
-			seq($.else_keyword, $.if_keyword, $.condition, $.block),
+			prec.right(
+				PREC.IF_CHAIN,
+				seq($.else_keyword, $.if_keyword, $.condition, $.block),
+			),
 
 		else_keyword: ($) => choice("else", "иначе"),
 
-		else_clause: ($) => seq($.else_keyword, $.block),
+		else_clause: ($) =>
+			prec.right(PREC.ELSE_CLAUSE, seq($.else_keyword, $.block)),
 
-		block: ($) => seq("{", repeat($._program_content), "}", optional(";")),
+		block: ($) => prec(PREC.BLOCK, seq("{", repeat($.statement), "}")),
 
-		// WHILE STATEMENT
-		while_statement: ($) => seq($.while_keyword, $.condition, $.block),
+		while_statement: ($) =>
+			prec.right(PREC.STATEMENT, seq($.while_keyword, $.condition, $.block)),
 
 		while_keyword: ($) => choice("while", "пока"),
 
-		// FOR STATEMENT
-		for_statement: ($) => seq($.for_keyword, $.for_condition, $.block),
+		for_statement: ($) =>
+			prec.right(PREC.STATEMENT, seq($.for_keyword, $.for_condition, $.block)),
 
 		for_keyword: ($) => choice("for", "для"),
 
@@ -82,11 +95,8 @@ module.exports = grammar({
 
 		times_keyword: ($) => choice("times", "раз"),
 
-		positive_number: ($) =>
-			token(choice(/[1-9][0-9]*/, seq("+", /[1-9][0-9]*/))),
-
-		// ACTION STATEMENT
-		action_statement: ($) => seq($.action_type, $.number, ";"),
+		action_statement: ($) =>
+			prec.left(PREC.ACTION, seq($.action_type, $.number, ";")),
 
 		action_type: ($) =>
 			choice(
@@ -103,12 +113,14 @@ module.exports = grammar({
 
 		number: ($) =>
 			token(
-				choice(
-					seq(optional(choice("+", "-")), /[1-9][0-9]*/),
-					seq(choice("+", "-"), /[1-9][0-9]*/),
-					"0",
+				prec(
+					PREC.NUMBER,
+					choice("0", seq(optional(choice("+", "-")), /[1-9][0-9]*/)),
 				),
 			),
+
+		positive_number: ($) =>
+			token(prec(PREC.NUMBER, choice(/[1-9][0-9]*/, seq("+", /[1-9][0-9]*/)))),
 
 		single_line_comment: ($) => token(seq("//", /.*/)),
 

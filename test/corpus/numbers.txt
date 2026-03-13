@@ -1,0 +1,380 @@
+==================
+Positive number action EN
+==================
+@start
+forward 123;
+@end
+---
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (forward_action))
+    (number))
+  (program_end))
+
+==================
+Positive number action RU
+==================
+@start
+вперед 456;
+@end
+---
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (forward_action))
+    (number))
+  (program_end))
+
+==================
+Negative number action EN
+==================
+@start
+backwards -789;
+@end
+---
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (backwards_action))
+    (number))
+  (program_end))
+
+==================
+Negative number action RU
+==================
+@start
+назад -10;
+@end
+---
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (backwards_action))
+    (number))
+  (program_end))
+
+==================
+Zero number action EN
+==================
+@start
+right 0;
+@end
+---
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (right_action))
+    (number))
+  (program_end))
+
+==================
+Zero number action RU
+==================
+@start
+вправо 0;
+@end
+---
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (right_action))
+    (number))
+  (program_end))
+
+==================
+Positive number with plus sign EN
+==================
+@start
+left +42;
+@end
+---
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (left_action))
+    (number))
+  (program_end))
+
+==================
+Positive number with plus sign RU
+==================
+@start
+влево +100;
+@end
+---
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (left_action))
+    (number))
+  (program_end))
+
+==================
+Large positive number
+==================
+@start
+forward 2147483647;
+@end
+---
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (forward_action))
+    (number))
+  (program_end))
+
+==================
+Large negative number
+==================
+@start
+backwards -2147483648;
+@end
+---
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (backwards_action))
+    (number))
+  (program_end))
+
+==================
+Number in if condition
+==================
+@start
+if({} coin) {
+  forward 10;
+};
+@end
+---
+(source_file
+  (program_start)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block
+      (action_statement
+        (action_type
+          (forward_action))
+        (number))))
+  (program_end))
+
+==================
+Number in for loop
+==================
+@start
+for(5 times) {
+  right 90;
+};
+@end
+---
+(source_file
+  (program_start)
+  (for_statement
+    (for_keyword)
+    (for_condition
+      (positive_number)
+      (times_keyword))
+    (block
+      (action_statement
+        (action_type
+          (right_action))
+        (number))))
+  (program_end))
+
+==================
+Number in for loop with plus sign
+==================
+@start
+for(+3 times) {
+  left 45;
+};
+@end
+---
+(source_file
+  (program_start)
+  (for_statement
+    (for_keyword)
+    (for_condition
+      (positive_number)
+      (times_keyword))
+    (block
+      (action_statement
+        (action_type
+          (left_action))
+        (number))))
+  (program_end))
+
+==================
+Multiple actions with different numbers
+==================
+@start
+forward 10;
+backwards -5;
+right 0;
+left +100;
+@end
+---
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (forward_action))
+    (number))
+  (action_statement
+    (action_type
+      (backwards_action))
+    (number))
+  (action_statement
+    (action_type
+      (right_action))
+    (number))
+  (action_statement
+    (action_type
+      (left_action))
+    (number))
+  (program_end))
+
+==================
+Numbers with comments
+==================
+@start
+// Positive number
+forward 123;
+/* Negative number */
+backwards -456;
+// Zero
+right 0;
+@end
+---
+(source_file
+  (program_start)
+  (single_line_comment)
+  (action_statement
+    (action_type
+      (forward_action))
+    (number))
+  (multi_line_comment)
+  (action_statement
+    (action_type
+      (backwards_action))
+    (number))
+  (single_line_comment)
+  (action_statement
+    (action_type
+      (right_action))
+    (number))
+  (program_end))
+
+==================
+Error: +0 is not allowed
+==================
+:error
+==================
+@start
+forward +0;
+@end
+---
+
+==================
+Error: -0 is not allowed
+==================
+:error
+==================
+@start
+forward -0;
+@end
+---
+
+==================
+Error: floating point number is not allowed
+==================
+:error
+==================
+@start
+forward 123.45;
+@end
+---
+
+==================
+Error: number too large (overflow)
+==================
+:error
+==================
+@start
+forward 900000000000000000000000;
+@end
+---
+
+==================
+Error: invalid number format
+==================
+:error
+==================
+@start
+forward 12a3;
+@end
+---
+
+==================
+Error: number with multiple signs
+==================
+:error
+==================
+@start
+forward +-123;
+@end
+---
+
+==================
+Error: number with multiple signs reversed
+==================
+:error
+==================
+@start
+forward -+123;
+@end
+---
+
+==================
+Error: number starting with decimal point
+==================
+:error
+==================
+@start
+forward .123;
+@end
+---
+
+==================
+Error: number ending with decimal point
+==================
+:error
+==================
+@start
+forward 123.;
+@end
+---
+
+==================
+Error: number with multiple decimal points
+==================
+:error
+==================
+@start
+forward 12.34.56;
+@end
+---

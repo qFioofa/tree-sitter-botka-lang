@@ -9,7 +9,14 @@ if({} coin) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -23,7 +30,14 @@ Coin instance RU
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -37,7 +51,14 @@ if({} obj) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (obj_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -51,7 +72,14 @@ Obj instance RU
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (obj_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -65,7 +93,14 @@ if({} space) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (space_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -79,7 +114,14 @@ Space instance RU
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (space_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -93,7 +135,14 @@ if({not} coin) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -107,7 +156,14 @@ Instance with not modifier RU
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -121,7 +177,14 @@ if({} coin) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -135,7 +198,14 @@ while({} obj) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (while_statement
+    (while_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (obj_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -149,7 +219,14 @@ Instance in while loop RU
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (while_statement
+    (while_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (obj_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -165,7 +242,21 @@ for(1 times) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (for_statement
+    (for_keyword)
+    (for_condition
+      (positive_number)
+      (times_keyword))
+    (block
+      (if_statement
+        (if_keyword)
+        (condition
+          (condition_modifier)
+          (instance
+            (space_instance)))
+        (block))
+      (empty_statement)))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -181,7 +272,21 @@ Instance in for loop RU
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (for_statement
+    (for_keyword)
+    (for_condition
+      (positive_number)
+      (times_keyword))
+    (block
+      (if_statement
+        (if_keyword)
+        (condition
+          (condition_modifier)
+          (instance
+            (space_instance)))
+        (block))
+      (empty_statement)))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -195,7 +300,14 @@ if({} coin) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -209,7 +321,14 @@ Coin instance RU
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -223,7 +342,14 @@ if({} obj) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (obj_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -237,7 +363,14 @@ Obj instance RU
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (obj_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -251,7 +384,14 @@ if({} space) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (space_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -265,7 +405,14 @@ Space instance RU
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (space_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -279,7 +426,14 @@ if({not} coin) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -293,7 +447,14 @@ Instance with not modifier RU
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -307,7 +468,14 @@ if({} coin) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -321,7 +489,14 @@ while({} obj) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (while_statement
+    (while_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (obj_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -335,7 +510,14 @@ Instance in while loop RU
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (while_statement
+    (while_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (obj_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -351,7 +533,21 @@ for(1 times) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (for_statement
+    (for_keyword)
+    (for_condition
+      (positive_number)
+      (times_keyword))
+    (block
+      (if_statement
+        (if_keyword)
+        (condition
+          (condition_modifier)
+          (instance
+            (space_instance)))
+        (block))
+      (empty_statement)))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -367,7 +563,21 @@ Instance in for loop RU
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (for_statement
+    (for_keyword)
+    (for_condition
+      (positive_number)
+      (times_keyword))
+    (block
+      (if_statement
+        (if_keyword)
+        (condition
+          (condition_modifier)
+          (instance
+            (space_instance)))
+        (block))
+      (empty_statement)))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -385,7 +595,30 @@ if({} coin) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block
+      (if_statement
+        (if_keyword)
+        (condition
+          (condition_modifier)
+          (instance
+            (obj_instance)))
+        (block
+          (if_statement
+            (if_keyword)
+            (condition
+              (condition_modifier)
+              (instance
+                (space_instance)))
+            (block))
+          (empty_statement)))
+      (empty_statement)))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -439,7 +672,19 @@ if({} coin) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block
+      (single_line_comment)
+      (action_statement
+        (action_type
+          (forward_action))
+        (number))))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -458,7 +703,22 @@ if({not} obj) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (single_line_comment)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (obj_instance)))
+    (block
+      (multi_line_comment)
+      (action_statement
+        (action_type
+          (right_action))
+        (number))
+      (single_line_comment)))
+  (empty_statement)
+  (single_line_comment)
   (program_end))
 
 ==================

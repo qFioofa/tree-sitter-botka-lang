@@ -1,11 +1,319 @@
 [
   {
-    "type": "program_end",
+    "type": "statement",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "action_statement",
+        "named": true
+      },
+      {
+        "type": "empty_statement",
+        "named": true
+      },
+      {
+        "type": "for_statement",
+        "named": true
+      },
+      {
+        "type": "if_statement",
+        "named": true
+      },
+      {
+        "type": "while_statement",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "action_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "action_type",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "action_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "backwards_action",
+          "named": true
+        },
+        {
+          "type": "forward_action",
+          "named": true
+        },
+        {
+          "type": "left_action",
+          "named": true
+        },
+        {
+          "type": "right_action",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "backwards_action",
     "named": true,
     "fields": {}
   },
   {
-    "type": "program_error_parsing",
+    "type": "block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "coin_instance",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "condition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "condition_modifier",
+          "named": true
+        },
+        {
+          "type": "instance",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "condition_modifier",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "else_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "else_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "else_if_chain",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "else_if_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "else_if_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "else_keyword",
+          "named": true
+        },
+        {
+          "type": "if_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "else_keyword",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "empty_statement",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "for_condition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "positive_number",
+          "named": true
+        },
+        {
+          "type": "times_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "for_keyword",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "for_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "for_condition",
+          "named": true
+        },
+        {
+          "type": "for_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "forward_action",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "if_keyword",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "if_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "else_clause",
+          "named": true
+        },
+        {
+          "type": "else_if_chain",
+          "named": true
+        },
+        {
+          "type": "if_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "instance",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "coin_instance",
+          "named": true
+        },
+        {
+          "type": "obj_instance",
+          "named": true
+        },
+        {
+          "type": "space_instance",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "left_action",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "obj_instance",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "program_end",
     "named": true,
     "fields": {}
   },
@@ -15,7 +323,50 @@
     "fields": {}
   },
   {
+    "type": "right_action",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "program_end",
+          "named": true
+        },
+        {
+          "type": "program_start",
+          "named": true
+        },
+        {
+          "type": "statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "space_instance",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "times_keyword",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "while_keyword",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "while_statement",
     "named": true,
     "fields": {},
     "children": {
@@ -23,23 +374,31 @@
       "required": true,
       "types": [
         {
-          "type": "comment",
+          "type": "block",
           "named": true
         },
         {
-          "type": "program_end",
+          "type": "condition",
           "named": true
         },
         {
-          "type": "program_error_parsing",
-          "named": true
-        },
-        {
-          "type": "program_start",
+          "type": "while_keyword",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
   },
   {
     "type": "@end",
@@ -58,7 +417,131 @@
     "named": false
   },
   {
-    "type": "comment",
+    "type": "backwards",
+    "named": false
+  },
+  {
+    "type": "coin",
+    "named": false
+  },
+  {
+    "type": "else",
+    "named": false
+  },
+  {
+    "type": "for",
+    "named": false
+  },
+  {
+    "type": "forward",
+    "named": false
+  },
+  {
+    "type": "if",
+    "named": false
+  },
+  {
+    "type": "left",
+    "named": false
+  },
+  {
+    "type": "multi_line_comment",
     "named": true
+  },
+  {
+    "type": "not",
+    "named": false
+  },
+  {
+    "type": "number",
+    "named": true
+  },
+  {
+    "type": "obj",
+    "named": false
+  },
+  {
+    "type": "positive_number",
+    "named": true
+  },
+  {
+    "type": "right",
+    "named": false
+  },
+  {
+    "type": "single_line_comment",
+    "named": true
+  },
+  {
+    "type": "space",
+    "named": false
+  },
+  {
+    "type": "times",
+    "named": false
+  },
+  {
+    "type": "while",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  },
+  {
+    "type": "влево",
+    "named": false
+  },
+  {
+    "type": "вперед",
+    "named": false
+  },
+  {
+    "type": "вправо",
+    "named": false
+  },
+  {
+    "type": "для",
+    "named": false
+  },
+  {
+    "type": "если",
+    "named": false
+  },
+  {
+    "type": "иначе",
+    "named": false
+  },
+  {
+    "type": "монета",
+    "named": false
+  },
+  {
+    "type": "назад",
+    "named": false
+  },
+  {
+    "type": "не",
+    "named": false
+  },
+  {
+    "type": "объект",
+    "named": false
+  },
+  {
+    "type": "пока",
+    "named": false
+  },
+  {
+    "type": "пусто",
+    "named": false
+  },
+  {
+    "type": "раз",
+    "named": false
   }
 ]

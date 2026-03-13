@@ -1,3 +1,7 @@
+build/
+interpreter/bin
+interpreter/obj
+
 # Logs
 logs
 *.log

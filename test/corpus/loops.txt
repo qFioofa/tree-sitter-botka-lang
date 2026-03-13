@@ -9,7 +9,14 @@ while({} coin) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (while_statement
+    (while_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -23,7 +30,14 @@ While loop with coin instance RU
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (while_statement
+    (while_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -37,7 +51,14 @@ while({not} obj) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (while_statement
+    (while_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (obj_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -51,7 +72,14 @@ While loop with obj instance RU
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (while_statement
+    (while_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (obj_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -65,7 +93,14 @@ while({} space) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (while_statement
+    (while_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (space_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -79,7 +114,14 @@ While loop with space instance RU
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (while_statement
+    (while_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (space_instance)))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -93,7 +135,13 @@ for(5 times) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (for_statement
+    (for_keyword)
+    (for_condition
+      (positive_number)
+      (times_keyword))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -107,7 +155,13 @@ For loop with positive number RU
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (for_statement
+    (for_keyword)
+    (for_condition
+      (positive_number)
+      (times_keyword))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -121,7 +175,13 @@ for(+10 times) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (for_statement
+    (for_keyword)
+    (for_condition
+      (positive_number)
+      (times_keyword))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -135,7 +195,13 @@ For loop with plus sign RU
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (for_statement
+    (for_keyword)
+    (for_condition
+      (positive_number)
+      (times_keyword))
+    (block))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -153,7 +219,30 @@ while({} coin) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (while_statement
+    (while_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block
+      (while_statement
+        (while_keyword)
+        (condition
+          (condition_modifier)
+          (instance
+            (obj_instance)))
+        (block
+          (while_statement
+            (while_keyword)
+            (condition
+              (condition_modifier)
+              (instance
+                (space_instance)))
+            (block))
+          (empty_statement)))
+      (empty_statement)))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -171,7 +260,27 @@ for(3 times) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (for_statement
+    (for_keyword)
+    (for_condition
+      (positive_number)
+      (times_keyword))
+    (block
+      (for_statement
+        (for_keyword)
+        (for_condition
+          (positive_number)
+          (times_keyword))
+        (block
+          (for_statement
+            (for_keyword)
+            (for_condition
+              (positive_number)
+              (times_keyword))
+            (block))
+          (empty_statement)))
+      (empty_statement)))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -190,7 +299,33 @@ while({} coin) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (while_statement
+    (while_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block
+      (for_statement
+        (for_keyword)
+        (for_condition
+          (positive_number)
+          (times_keyword))
+        (block
+          (if_statement
+            (if_keyword)
+            (condition
+              (condition_modifier)
+              (instance
+                (obj_instance)))
+            (block
+              (action_statement
+                (action_type
+                  (forward_action))
+                (number))))
+          (empty_statement)))
+      (empty_statement)))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -208,7 +343,23 @@ while({} coin) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (while_statement
+    (while_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block
+      (single_line_comment)
+      (for_statement
+        (for_keyword)
+        (for_condition
+          (positive_number)
+          (times_keyword))
+        (block
+          (multi_line_comment)))
+      (empty_statement)))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -229,7 +380,26 @@ for(3 times) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (multi_line_comment)
+  (while_statement
+    (while_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (obj_instance)))
+    (block
+      (single_line_comment)))
+  (empty_statement)
+  (multi_line_comment)
+  (for_statement
+    (for_keyword)
+    (for_condition
+      (positive_number)
+      (times_keyword))
+    (block
+      (multi_line_comment)))
+  (empty_statement)
+  (multi_line_comment)
   (program_end))
 
 ==================
@@ -252,5 +422,46 @@ while({} coin) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (while_statement
+    (while_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block
+      (for_statement
+        (for_keyword)
+        (for_condition
+          (positive_number)
+          (times_keyword))
+        (block
+          (if_statement
+            (if_keyword)
+            (condition
+              (condition_modifier)
+              (instance
+                (space_instance)))
+            (block
+              (action_statement
+                (action_type
+                  (forward_action))
+                (number)))
+            (else_clause
+              (else_keyword)
+              (block
+                (action_statement
+                  (action_type
+                    (backwards_action))
+                  (number)))))
+          (empty_statement)
+          (action_statement
+            (action_type
+              (right_action))
+            (number))))
+      (empty_statement)
+      (action_statement
+        (action_type
+          (left_action))
+        (number))))
+  (empty_statement)
   (program_end))
