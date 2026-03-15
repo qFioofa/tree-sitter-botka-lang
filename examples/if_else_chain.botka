@@ -1,0 +1,12 @@
+@start
+// If-else chain with different instances
+if({} coin) {
+    forward 1;
+} else if({} obj) {
+    right 90;
+} else if({} space) {
+    left 45;
+} else {
+    backwards 1;
+};
+@end

@@ -1,0 +1,37 @@
+@start
+// Complex navigation with conditions
+
+// Check for coin first
+if({not} coin) {
+    // No coin, move forward to find it
+    forward 3;
+} else {
+    // Coin detected, collect it
+    forward 1;
+};
+
+// Turn right and check for obstacles
+right 90;
+
+// While path is clear, keep moving
+while({} space) {
+    forward 1;
+};
+
+// Turn around
+right 90;
+right 90;
+
+// Return back
+for(3 times) {
+    forward 1;
+};
+
+// Final positioning
+if({} obj) {
+    left 90;
+} else {
+    right 90;
+};
+
+@end

@@ -16,6 +16,7 @@ namespace Plunt.Interpreter.Bindings
         internal readonly ts_parser_new_delegate _ts_parser_new;
         internal readonly ts_parser_set_language_delegate _ts_parser_set_language;
         internal readonly ts_parser_parse_string_delegate _ts_parser_parse_string;
+        internal readonly ts_parser_parse_string_encoding_delegate _ts_parser_parse_string_encoding;
         internal readonly ts_tree_root_node_delegate _ts_tree_root_node;
         internal readonly ts_tree_delete_delegate _ts_tree_delete;
         internal readonly ts_parser_delete_delegate _ts_parser_delete;
@@ -40,6 +41,7 @@ namespace Plunt.Interpreter.Bindings
             _ts_parser_new = GetExport<ts_parser_new_delegate>("ts_parser_new");
             _ts_parser_set_language = GetExport<ts_parser_set_language_delegate>("ts_parser_set_language");
             _ts_parser_parse_string = GetExport<ts_parser_parse_string_delegate>("ts_parser_parse_string");
+            _ts_parser_parse_string_encoding = GetExport<ts_parser_parse_string_encoding_delegate>("ts_parser_parse_string_encoding");
             _ts_tree_root_node = GetExport<ts_tree_root_node_delegate>("ts_tree_root_node");
             _ts_tree_delete = GetExport<ts_tree_delete_delegate>("ts_tree_delete");
             _ts_parser_delete = GetExport<ts_parser_delete_delegate>("ts_parser_delete");
@@ -89,7 +91,8 @@ namespace Plunt.Interpreter.Bindings
             ObjectDisposedException.ThrowIf(_disposed, this);
             ArgumentException.ThrowIfNullOrEmpty(sourceCode);
 
-            var treePtr = _ts_parser_parse_string(_parser, IntPtr.Zero, sourceCode, (uint)sourceCode.Length);
+            // Use UTF-8 encoding (TSInputEncodingUTF8 = 0)
+            var treePtr = _ts_parser_parse_string_encoding(_parser, IntPtr.Zero, sourceCode, (uint)sourceCode.Length, 0);
 
             return treePtr != IntPtr.Zero
                 ? new TreeSitterTree(treePtr, sourceCode, this)
@@ -114,6 +117,7 @@ namespace Plunt.Interpreter.Bindings
         internal delegate IntPtr ts_parser_new_delegate();
         internal delegate void ts_parser_set_language_delegate(IntPtr parser, IntPtr language);
         internal delegate IntPtr ts_parser_parse_string_delegate(IntPtr parser, IntPtr oldTree, string source, uint length);
+        internal delegate IntPtr ts_parser_parse_string_encoding_delegate(IntPtr parser, IntPtr oldTree, string source, uint length, uint encoding);
         internal delegate TSNode ts_tree_root_node_delegate(IntPtr tree);
         internal delegate void ts_tree_delete_delegate(IntPtr tree);
         internal delegate void ts_parser_delete_delegate(IntPtr parser);
@@ -214,6 +218,7 @@ namespace Plunt.Interpreter.Bindings
         public string Type => Marshal.PtrToStringAnsi(_binding._ts_node_type(_tsNode)) ?? "unknown";
         public string Text => _sourceCode.Substring(_startByte, _endByte - _startByte);
         public int StartLine => (int)_binding._ts_node_start_point(_tsNode).Row;
+        public int StartColumn => (int)_binding._ts_node_start_point(_tsNode).Column;
         public bool IsError => _binding._ts_node_is_error(_tsNode);
         public int ChildCount => (int)_binding._ts_node_child_count(_tsNode);
 

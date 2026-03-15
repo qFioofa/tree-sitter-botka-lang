@@ -1,3 +1,4 @@
 @start
+// Simple forward movement
 forward 4;
 @end

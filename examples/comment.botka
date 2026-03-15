@@ -1,3 +1,11 @@
 @start
-// comment
+// Example with comments
+// This is a single line comment
+
+/*
+ * This is a multi-line comment
+ * spanning multiple lines
+ */
+
+forward 1;
 @end

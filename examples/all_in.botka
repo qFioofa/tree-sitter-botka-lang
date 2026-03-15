@@ -1,0 +1,36 @@
+@start
+// Complete example with all features
+
+// If-else with coin detection
+if({} coin) {
+    forward 1;
+} else {
+    forward 5;
+};
+
+// While loop - move while there's space
+while({} space) {
+    forward 1;
+};
+
+// For loop - turn 3 times
+for(3 times) {
+    right 90;
+};
+
+// Basic actions
+forward 5;
+backwards 2;
+right 90;
+left 45;
+
+// Nested if with not modifier
+if({not} obj) {
+    forward 1;
+} else if({} coin) {
+    right 90;
+} else {
+    left 90;
+};
+
+@end

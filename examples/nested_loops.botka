@@ -1,0 +1,15 @@
+@start
+// Nested loops example
+// Outer while loop
+while({} coin) {
+    // Inner for loop
+    for(3 times) {
+        if({} obj) {
+            forward 1;
+        } else {
+            backwards 1;
+        };
+    };
+    left 90;
+};
+@end
