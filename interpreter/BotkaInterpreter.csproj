@@ -4,9 +4,9 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <OutputPath>../build</OutputPath>
-    <PublishDir>../build</PublishDir>
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="bin/libtree-sitter-plunt.*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
 </Project>
