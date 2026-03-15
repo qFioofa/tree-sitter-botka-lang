@@ -140,21 +140,6 @@
     }
   },
   {
-    "type": "else_if_chain",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "else_if_clause",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "else_if_clause",
     "named": true,
     "fields": {},
@@ -269,7 +254,7 @@
           "named": true
         },
         {
-          "type": "else_if_chain",
+          "type": "else_if_clause",
           "named": true
         },
         {

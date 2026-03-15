@@ -47,7 +47,7 @@ module.exports = grammar({
 					$.if_keyword,
 					$.condition,
 					$.block,
-					optional($.else_if_chain),
+					repeat($.else_if_clause),
 					optional($.else_clause),
 				),
 			),
@@ -66,15 +66,13 @@ module.exports = grammar({
 		obj_instance: ($) => choice("obj", "объект"),
 		space_instance: ($) => choice("space", "пусто"),
 
-		else_if_chain: ($) => prec.right(PREC.IF_CHAIN, repeat1($.else_if_clause)),
+		else_keyword: ($) => choice("else", "иначе"),
 
 		else_if_clause: ($) =>
 			prec.right(
 				PREC.IF_CHAIN,
 				seq($.else_keyword, $.if_keyword, $.condition, $.block),
 			),
-
-		else_keyword: ($) => choice("else", "иначе"),
 
 		else_clause: ($) =>
 			prec.right(PREC.ELSE_CLAUSE, seq($.else_keyword, $.block)),

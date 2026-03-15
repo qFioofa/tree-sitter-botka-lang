@@ -628,14 +628,32 @@ If with else clause and instances
 if({} coin) {
   forward 1;
 } else {
-  backward 1;
+  backwards 1;
 };
 @end
 ---
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block
+      (action_statement
+        (action_type
+          (forward_action))
+        (number)))
+    (else_clause
+      (else_keyword)
+      (block
+        (action_statement
+          (action_type
+            (backwards_action))
+          (number)))))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -649,14 +667,56 @@ if({} coin) {
 } else if({} space) {
   left 45;
 } else {
-  backward 1;
+  backwards 1;
 };
 @end
 ---
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (if_statement
+    (if_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block
+      (action_statement
+        (action_type
+          (forward_action))
+        (number)))
+    (else_if_clause
+      (else_keyword)
+      (if_keyword)
+      (condition
+        (condition_modifier)
+        (instance
+          (obj_instance)))
+      (block
+        (action_statement
+          (action_type
+            (right_action))
+          (number))))
+    (else_if_clause
+      (else_keyword)
+      (if_keyword)
+      (condition
+        (condition_modifier)
+        (instance
+          (space_instance)))
+      (block
+        (action_statement
+          (action_type
+            (left_action))
+          (number))))
+    (else_clause
+      (else_keyword)
+      (block
+        (action_statement
+          (action_type
+            (backwards_action))
+          (number)))))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -733,7 +793,7 @@ while({} coin) {
       forward 1;
     } else {
       /* Nested comment */
-      backward 1;
+      backwards 1;
     };
   };
 };
@@ -742,5 +802,41 @@ while({} coin) {
 
 (source_file
   (program_start)
-  (program_error_parsing)
+  (multi_line_comment)
+  (while_statement
+    (while_keyword)
+    (condition
+      (condition_modifier)
+      (instance
+        (coin_instance)))
+    (block
+      (single_line_comment)
+      (for_statement
+        (for_keyword)
+        (for_condition
+          (positive_number)
+          (times_keyword))
+        (block
+          (if_statement
+            (if_keyword)
+            (condition
+              (condition_modifier)
+              (instance
+                (obj_instance)))
+            (block
+              (action_statement
+                (action_type
+                  (forward_action))
+                (number)))
+            (else_clause
+              (else_keyword)
+              (block
+                (multi_line_comment)
+                (action_statement
+                  (action_type
+                    (backwards_action))
+                  (number)))))
+          (empty_statement)))
+      (empty_statement)))
+  (empty_statement)
   (program_end))

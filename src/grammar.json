@@ -128,16 +128,11 @@
             "name": "block"
           },
           {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "else_if_chain"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "else_if_clause"
+            }
           },
           {
             "type": "CHOICE",
@@ -292,16 +287,18 @@
         }
       ]
     },
-    "else_if_chain": {
-      "type": "PREC_RIGHT",
-      "value": 4,
-      "content": {
-        "type": "REPEAT1",
-        "content": {
-          "type": "SYMBOL",
-          "name": "else_if_clause"
+    "else_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "else"
+        },
+        {
+          "type": "STRING",
+          "value": "иначе"
         }
-      }
+      ]
     },
     "else_if_clause": {
       "type": "PREC_RIGHT",
@@ -327,19 +324,6 @@
           }
         ]
       }
-    },
-    "else_keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "else"
-        },
-        {
-          "type": "STRING",
-          "value": "иначе"
-        }
-      ]
     },
     "else_clause": {
       "type": "PREC_RIGHT",

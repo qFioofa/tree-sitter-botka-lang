@@ -170,6 +170,7 @@ if({} coin) {
         (action_type
           (forward_action))
         (number))))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -193,6 +194,7 @@ for(5 times) {
         (action_type
           (right_action))
         (number))))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -216,6 +218,7 @@ for(+3 times) {
         (action_type
           (left_action))
         (number))))
+  (empty_statement)
   (program_end))
 
 ==================
@@ -282,99 +285,188 @@ right 0;
 ==================
 Error: +0 is not allowed
 ==================
-:error
-==================
 @start
 forward +0;
 @end
 ---
 
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (forward_action))
+    (ERROR
+      (UNEXPECTED '0')
+      (ERROR))
+    (number))
+  (empty_statement)
+  (program_end))
+
 ==================
 Error: -0 is not allowed
-==================
-:error
 ==================
 @start
 forward -0;
 @end
 ---
 
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (forward_action))
+    (ERROR
+      (UNEXPECTED '0')
+      (ERROR))
+    (number))
+  (empty_statement)
+  (program_end))
+
 ==================
 Error: floating point number is not allowed
-==================
-:error
 ==================
 @start
 forward 123.45;
 @end
 ---
 
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (forward_action))
+    (number)
+    (ERROR
+      (UNEXPECTED '.')
+      (number)))
+  (program_end))
+
 ==================
 Error: number too large (overflow)
-==================
-:error
 ==================
 @start
 forward 900000000000000000000000;
 @end
 ---
 
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (forward_action))
+    (number))
+  (empty_statement)
+  (program_end))
+
 ==================
 Error: invalid number format
-==================
-:error
 ==================
 @start
 forward 12a3;
 @end
 ---
 
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (forward_action))
+    (number)
+    (ERROR
+      (identifier)))
+  (program_end))
+
 ==================
 Error: number with multiple signs
-==================
-:error
 ==================
 @start
 forward +-123;
 @end
 ---
 
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (forward_action))
+    (ERROR
+      (UNEXPECTED '-')))
+  (number)
+  (empty_statement)
+  (program_end))
+
 ==================
 Error: number with multiple signs reversed
-==================
-:error
 ==================
 @start
 forward -+123;
 @end
 ---
 
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (forward_action))
+    (ERROR
+      (UNEXPECTED '+')))
+  (number)
+  (empty_statement)
+  (program_end))
+
 ==================
 Error: number starting with decimal point
-==================
-:error
 ==================
 @start
 forward .123;
 @end
 ---
 
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (forward_action))
+    (ERROR
+      (UNEXPECTED '.'))
+    (number))
+  (empty_statement)
+  (program_end))
+
 ==================
 Error: number ending with decimal point
-==================
-:error
 ==================
 @start
 forward 123.;
 @end
 ---
 
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (forward_action))
+    (number)
+    (ERROR
+      (UNEXPECTED '.')))
+  (program_end))
+
 ==================
 Error: number with multiple decimal points
-==================
-:error
 ==================
 @start
 forward 12.34.56;
 @end
 ---
+
+(source_file
+  (program_start)
+  (action_statement
+    (action_type
+      (forward_action))
+    (number)
+    (ERROR
+      (UNEXPECTED '.')
+      (number)
+      (UNEXPECTED '.')))
+  (program_end))
